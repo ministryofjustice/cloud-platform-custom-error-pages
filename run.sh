@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IMAGE=quay.io/kubernetes-ingress-controller/custom-error-pages-amd64:0.4
+IMAGE=cloud-platform-custom-error-pages:0.1
 
 docker run --rm \
   --name errorpage \
