@@ -6,6 +6,10 @@ all: .built-image
 	docker build -t $(IMAGE) .
 	touch .built-image
 
+push:
+	docker tag $(IMAGE) ministryofjustice/$(IMAGE)
+	docker push ministryofjustice/$(IMAGE)
+
 clean:
 	rm -f .built-image
 	docker rm $(IMAGE)
