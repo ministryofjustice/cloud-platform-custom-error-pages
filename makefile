@@ -1,8 +1,8 @@
-IMAGE := cloud-platform-custom-error-pages:0.2
+IMAGE := cloud-platform-custom-error-pages:0.3
 
 all: .built-image
 
-.built-image:
+.built-image: rootfs/www/*
 	docker build -t $(IMAGE) .
 	touch .built-image
 
