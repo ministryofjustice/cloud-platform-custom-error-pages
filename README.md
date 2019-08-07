@@ -16,24 +16,23 @@ NB: This image can only respond with a single HTML file. So, if you want your cu
 
 ## Installation in a Kubernetes cluster
 
-* Create a service and deployment of the error pages container
+Update the defaultBackend config in the [nginx-ingress-acme.tf][infrastructure-repo], with the docker image created above containing custom HTTP error pages.
 
-    kubectl create -f kubernetes/custom-default-backend.yaml
+```
+defaultBackend:
+  enabled: true
 
-* Edit the nginx-ingress controller
+  name: default-backend
+  image:
+    repository: ministryofjustice/cloud-platform-custom-error-pages 
+    tag: "0.3"
+    pullPolicy: IfNotPresent
 
-    kubectl -n ingress-controllers edit deployment nginx-ingress-acme-controller
+  extraArgs: {}
 
-Change the value of `--default-backend-service` to `default/nginx-errors` (or wherever you deployed the error pages container)
-
-* Edit the nginx-ingress controller configmap
-
-    kubectl -n ingress-controllers edit configmap nginx-ingress-acme-controller
-
-In the `data` section, add a `custom-http-errors` key, listing all the errors you want your service to handle.
-
-    data:
-      custom-http-errors: 400,403,404,502,504
+  port: 8080
+```
 
 [instructions]: https://github.com/kubernetes/ingress-nginx/tree/master/docs/examples/customization/custom-errors
 [example]: https://github.com/kubernetes/ingress-nginx/tree/master/images/custom-error-pages
+[infrastructure-repo]: https://github.com/ministryofjustice/cloud-platform-infrastructure/blob/master/terraform/cloud-platform-components/nginx-ingress-acme.tf
