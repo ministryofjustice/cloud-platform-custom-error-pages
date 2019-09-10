@@ -1,4 +1,4 @@
-IMAGE := cloud-platform-custom-error-pages:0.3
+IMAGE := cloud-platform-custom-error-pages:0.4
 
 all: .built-image
 
@@ -6,7 +6,7 @@ all: .built-image
 	docker build -t $(IMAGE) .
 	touch .built-image
 
-push:
+push: .built-image
 	docker tag $(IMAGE) ministryofjustice/$(IMAGE)
 	docker push ministryofjustice/$(IMAGE)
 
