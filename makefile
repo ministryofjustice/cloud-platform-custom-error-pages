@@ -6,7 +6,7 @@ all: .built-image
 	docker build -t $(IMAGE) .
 	touch .built-image
 
-push:
+push: .built-image
 	docker tag $(IMAGE) ministryofjustice/$(IMAGE)
 	docker push ministryofjustice/$(IMAGE)
 
