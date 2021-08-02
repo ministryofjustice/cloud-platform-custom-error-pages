@@ -2,6 +2,8 @@
 
 This repo creates a docker image containing custom HTTP error pages, to be used as per these [instructions].
 
+A default-backend is served by nginx as a fall-back. This is typically when the sub-domain, for example `https://wrongdomain.cloud-platform.service.justice.gov.uk/`, isn't recognized. Otherwise, the default nginx page would show, which doesn't look professional.
+
 This is a simplified version of the kubernetes/ingress-nginx [example].
 
 ## Usage
