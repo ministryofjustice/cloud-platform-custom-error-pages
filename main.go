@@ -26,8 +26,6 @@ import (
 	"strconv"
 	"strings"
 	"time"
-
-	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
 const (
@@ -70,8 +68,6 @@ func main() {
 	}
 
 	http.HandleFunc("/", errorHandler(errFilesPath))
-
-	http.Handle("/metrics", promhttp.Handler())
 
 	http.HandleFunc("/healthz", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
