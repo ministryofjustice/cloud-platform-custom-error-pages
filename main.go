@@ -59,6 +59,9 @@ const (
 	// ErrFilesPathVar is the name of the environment variable indicating
 	// the location on disk of files served by the handler.
 	ErrFilesPathVar = "ERROR_FILES_PATH"
+
+	// Permanent redirection for .well-known/security.txt file
+	SecurityTxtRedirectPath = "https://raw.githubusercontent.com/ministryofjustice/security-guidance/main/contact/vulnerability-disclosure-security.txt"
 )
 
 func main() {
@@ -68,6 +71,9 @@ func main() {
 	}
 
 	http.HandleFunc("/", errorHandler(errFilesPath))
+
+	// Do 301 Permanent Redirect for the file .well-known/security.txt to central security.txt
+	http.Handle("/.well-known/security.txt", http.RedirectHandler(SecurityTxtRedirectPath, 301))
 
 	http.HandleFunc("/healthz", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
