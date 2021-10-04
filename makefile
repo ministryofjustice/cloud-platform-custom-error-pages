@@ -1,4 +1,4 @@
-IMAGE := cloud-platform-custom-error-pages:0.5
+IMAGE := cloud-platform-custom-error-pages:0.6
 
 all: .built-image
 

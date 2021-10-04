@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IMAGE=cloud-platform-custom-error-pages:0.1
+IMAGE=cloud-platform-custom-error-pages:0.6
 
 docker run --rm \
   --name errorpage \
