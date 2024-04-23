@@ -25,4 +25,4 @@ jobs:
         with:
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/${{ github.repository }}:${{ github.ref }}
+          tags: ${{ secrets.DOCKER_USERNAME }}/cloud-platform-custom-error-pages:${{ github.event.release.tag_name }}
