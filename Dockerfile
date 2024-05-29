@@ -15,7 +15,7 @@ COPY . ./
 RUN go mod download
 
 # Build the Go app
-RUN CGO_ENABLED=0 go build -o /app/main .
+RUN CGO_ENABLED=0 go build -o cloud-platform-custom-error-pages . 
 
 RUN chown -R appuser:appgroup /app
 
@@ -27,7 +27,7 @@ COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
 # copy user permissions from builder
 COPY --from=builder /etc/passwd /etc/passwd
-COPY --from=builder /app/main /app/main
+COPY --from=builder /app/cloud-platform-custom-error-pages /app/cloud-platform-custom-error-pages
 
 COPY rootfs/etc /etc
 COPY rootfs/www /www
@@ -36,4 +36,4 @@ EXPOSE 8080/tcp
 
 USER 1000
 
-CMD ["/cloud-platform-custom-error-pages"]
+CMD ["./app/cloud-platform-custom-error-pages"]
