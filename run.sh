@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IMAGE=cloud-platform-custom-error-pages:0.6
+IMAGE=ministryofjustice/cloud-platform-custom-error-pages:1.1.4
 
 docker run --rm \
   --name errorpage \
