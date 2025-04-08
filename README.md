@@ -1,4 +1,4 @@
-# Cloud Platform Custom Error Pages
+# Manage A Workforce Custom Error Pages
 
 This repo creates a docker image containing custom HTTP error pages, to be used as per these [instructions].
 
@@ -26,7 +26,7 @@ defaultBackend:
 
   name: default-backend
   image:
-    repository: ministryofjustice/cloud-platform-custom-error-pages 
+    repository: ministryofjustice/manage-a-workforce-custom-error-pages 
     tag: "0.3"
     pullPolicy: IfNotPresent
 

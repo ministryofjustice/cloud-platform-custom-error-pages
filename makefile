@@ -1,4 +1,4 @@
-IMAGE := cloud-platform-custom-error-pages:0.6
+IMAGE := manage-a-workforce-custom-error-pages:0.3
 
 all: .built-image
 
