@@ -27,7 +27,7 @@ defaultBackend:
   name: default-backend
   image:
     repository: ministryofjustice/manage-a-workforce-custom-error-pages 
-    tag: "0.3"
+    tag: "0.5"
     pullPolicy: IfNotPresent
 
   extraArgs: {}
