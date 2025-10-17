@@ -1,4 +1,4 @@
-FROM golang:1.22.2-alpine3.19 AS builder
+FROM golang:1.25.2-alpine3.22 AS builder
 
 RUN addgroup -g 1000 -S appgroup && \
   adduser -u 1000 -S appuser -G appgroup

@@ -35,6 +35,12 @@ defaultBackend:
   port: 8080
 ```
 
+## Cutting a new release
+
+Upon applying updates to this repo and or Dockerfile, create a new release. This will trigger a GitHub action to build and push a new image to Docker Hub with the tag matching the release version.
+
+You'll also need to update the image tag ref in `run.sh` to match the new version.
+
 [instructions]: https://github.com/kubernetes/ingress-nginx/tree/master/docs/examples/customization/custom-errors
 [example]: https://github.com/kubernetes/ingress-nginx/tree/master/images/custom-error-pages
 [infrastructure-repo]: https://github.com/ministryofjustice/cloud-platform-infrastructure/blob/master/terraform/cloud-platform-components/nginx-ingress-acme.tf

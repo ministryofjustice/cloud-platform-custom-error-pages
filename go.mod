@@ -1,6 +1,6 @@
 module github.com/ministryofjustice/cloud-platform-custom-error-pages
 
-go 1.22.1
+go 1.25
 
 require github.com/prometheus/client_golang v1.19.0
 
